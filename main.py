@@ -1,4 +1,6 @@
 import requests
+from datetime import datetime
+
 
 TOKEN = "jifbokN293Okskl"
 USERNAME = "djavo"
@@ -28,5 +30,18 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response.text)
+
+pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph001"
+
+now = datetime.now()
+date_time = now.strftime("%Y%m%d")
+
+pixel_config = {
+    "date": date_time,
+    "quantity": "4.6"
+}
+
+response = requests.post(url=pixel_creation_endpoint, json=pixel_config, headers=headers)
 print(response.text)
