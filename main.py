@@ -40,7 +40,7 @@ date_time = now.strftime("%Y%m%d")
 
 pixel_config = {
     "date": date_time,
-    "quantity": "4.6"
+    "quantity": input("How many kilometers did you walk today? ")
 }
 
 response = requests.post(url=pixel_creation_endpoint, json=pixel_config, headers=headers)
